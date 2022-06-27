@@ -1,0 +1,13 @@
+-l, --long_output:	Prints sequences and other statistics (number of matches, mismatches, insertions, deletions, starting positions)
+
+-v, --verbose:		Prints the steps of the algorithm
+
+-m, --match < int >:	Match score/mismatch penalty, default = 3
+
+-g, --gap < int >:	Gap penalty, default = 2
+
+-b, --best < int >:	Prints the best n alignments
+
+-c, --case:		If specified, the algorithm will be case insensitive and the sequences will be printed in upper case. 
+
+-h, --help: 		Prints help
