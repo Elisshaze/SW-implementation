@@ -7,14 +7,14 @@ The script will ask the user to input two sequences. In case of no specification
 ## Output
 The basic output given two sequences (e.g., AAACGCT and AATCCG), will look like this:
 
-RESULTS:
-Score:  8 Match score: 3 Gap penalty: gap
-SEQUENCE:  AA+C-C
+				RESULTS:
+				Score:  8 Match score: 3 Gap penalty: gap
+				SEQUENCE:  AA+C-C
 
-Score:  8 Match score: 3 Gap penalty: gap
-SEQUENCE:  AA+C+G
+				Score:  8 Match score: 3 Gap penalty: gap
+				SEQUENCE:  AA+C+G
 
-SEQUENCE:  AA++CG
+				SEQUENCE:  AA++CG
 
 Where *score* is the score of the alignment.
 If two (or more) sequences are not separated by the *score* line (in this example, Score:  8 Match score: 3 Gap penalty: gap), it means that the sequences were reconstructued during the backtrack starting from the same initial cell.
