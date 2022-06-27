@@ -116,7 +116,7 @@ def wrapper_restore(M, M_trace, seq2):
 			start = x[0]
 			start_points=x[1]
 			for x in start_points :
-				print("Score: ", start, "Match score:", score, "Gap penalty: gap")
+				print("Score: ", start, "Match score:", score, "Gap penalty:", gap)
 				restore_sequence(M_rev, M_trace_rev, seq2, b_, x[0], x[1])
 				#print('\n')
 
