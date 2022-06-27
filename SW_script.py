@@ -43,9 +43,9 @@ def return_trace_score(list_moves, choice):
 
 def calculate_matrix(seq1, seq2):
 	#Compute the scoring matrix
-	M = np.zeros((len(seq1) + 1, len(seq2) + 1), dtype=np.int)
+	M = np.zeros((len(seq1) + 1, len(seq2) + 1), dtype=int)
 	#Compute the tracing matrix, will be used for the backtrack
-	M_trace = np.zeros((len(seq1) + 1, len(seq2) + 1), dtype=np.int)
+	M_trace = np.zeros((len(seq1) + 1, len(seq2) + 1), dtype=int)
 
 	for i, j in itertools.product(range(1, M.shape[0]), range(1, M.shape[1])):
 		match = M[i - 1, j - 1] + (score if seq1[i - 1] == seq2[j - 1] else - score)
@@ -99,15 +99,15 @@ def wrapper_restore(M, M_trace, seq2):
 		print ("Starting points:", start_points) # Will return list of tuples
 
 	for x in start_points :
-		print("Score: ", M_rev[i][j], "Match score:", score, "Gap penalty: gap")
+		print("Score: ", M_rev[i][j], "Match score:", score, "Gap penalty:", gap)
 
 		if M_rev[i][j] == 0 :
-			print("No possible alignment for starting point with value", 0)
+			print("\033[93mNo possible alignment for starting point with value", 0, '\033[0m')
 			break
 
 		restore_sequence(M_rev, M_trace_rev, seq2, b_, x[0], x[1])
 		#seq.append(M_rev[i][j])
-		print('\n')
+		#print('\n')
 
 	#In case of wanting the n best score alignments
 	if other_max > 0 :
@@ -288,6 +288,7 @@ def restore_sequence(M_rev, M_trace_rev, b, b_, i, j, m_c=0, mm_c=0, i_c=0, d_c=
 	#Printing the results in stdout
 	if current_max == 0:
 		for x in l:
+			results.append(l)
 			print("SEQUENCE: ", x[0])
 			if long_output == 1 :
 				print("starting_position: ", x[1])
@@ -307,7 +308,7 @@ def smith_watermann(seq1, seq2) :
 	if verbose == 1 :
 		print('Scoring matrix:\n', M, 'Tracing matrix\n', M_trace)
 
-	print("RESULTS:")
+	print("\n\033[94mRESULTS:\033[0m \n")
 	wrapper_restore(M, M_trace, seq2)
 
 def args_options():
@@ -362,13 +363,13 @@ def args_options():
 def user_input():
 	seq1 = input('Type reference sequence:\n')
 	if seq1:
-		print("OK!")
+		print("\033[92mOK!\033[0m")
 	else :
 		print("insert a valid sequence")
 		exit()
 	seq2 = input('Type matching sequence:\n')
 	if seq2:
-		print("OK!")
+		print("\033[92mOK!\033[0m")
 	else :
 		print("insert a valid sequence")
 		exit()
@@ -382,9 +383,15 @@ score, gap, other_max, long_output, verbose, case = args_options()
 #The user inputs the sequences when asked
 seq1, seq2 = user_input()
 
+#Array for the results
+results = []
+
 if case==1 :
 	seq1 = seq1.upper()
 	seq2 = seq2.upper()
 	print(seq1, seq2)
 
 smith_watermann(seq1, seq2)
+
+#if you want to print the results outside the recursion:
+#print("all results", results)
