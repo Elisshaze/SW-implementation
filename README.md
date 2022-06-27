@@ -8,10 +8,10 @@ The script will ask the user to input two sequences. In case of no specification
 The basic output given two sequences (e.g., AAACGCT and AATCCG), will look like this:
 
 				RESULTS:
-				Score:  8 Match score: 3 Gap penalty: gap
+				Score:  8 Match score: 3 Gap penalty: 2
 				SEQUENCE:  AA+C-C
 
-				Score:  8 Match score: 3 Gap penalty: gap
+				Score:  8 Match score: 3 Gap penalty: 2
 				SEQUENCE:  AA+C+G
 
 				SEQUENCE:  AA++CG
