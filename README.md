@@ -21,5 +21,7 @@ If two (or more) sequences are not separated by the *score* line (in this exampl
 
 By running the script with the -l option, a longer output containing other statistics will be printed. 
 
+**Mismatches will be denoted with an "X".**
+
 ## Options
 The options for the script will be displayed by running the script with -h, or can be found in the *help.txt* file.
